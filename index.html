@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品搜尋</title>
+</head>
+<body>
+    <h1>商品搜尋</h1>
+    
+    <input type="text" id="searchInput" placeholder="輸入商品名稱">
+    
+    <ul id="productList">
+        <li>東大特產</li>
+        <li>台東釋迦</li>
+        <li>台東米</li>
+        <li>米苔目</li>
+        <li>羊肉爐</li>
+    </ul>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            let query = this.value.toLowerCase();
+            
+            let products = document.querySelectorAll('#productList li');
+            
+            products.forEach(function(product) {
+                let productName = product.textContent.toLowerCase();
+                
+                if (productName.includes(query)) {
+                    product.style.display = 'list-item';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
